@@ -2,9 +2,12 @@ package com.example.proyectohackaton.Entity;
 
 public enum EstadoOrdenTrabajo {
 
-    ABIERTA,
-    ASIGNADA,
+    NUEVO,
+    EN_VALIDACION,
+    ASIGNADO,
     EN_EJECUCION,
-    FINALIZADA,
-    CANCELADA
+    EN_ESPERA,
+    SOLUCIONADO,
+    CERRADO,
+    REABIERTO
 }

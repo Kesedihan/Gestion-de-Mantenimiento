@@ -1,13 +1,16 @@
 package com.example.proyectohackaton.Entity;
 
 public enum NombreRol {
-    /** Rol de administrador: permisos completos. */
-    ADMINISTRADOR,
+    /** Rol de oficina: permisos limitados. */
+    OFICINADEMANTENIMIENTO,
 
-    /** Rol técnico: permisos para acciones de mantenimiento. */
-    TECNICO,
+    /** Rol operario: permisos para acciones de mantenimiento. */
+    OPERARIO,
 
-    /** Rol empleado (usuario estándar del sistema). */
-    EMPLEADO
+    /** Rol solicitante (usuario estándar del sistema). */
+    SOLICITANTE,
+
+    /** Rol jefe permisos completos. */
+    JEFEPROGRAMADOR
 
 }
