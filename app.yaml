@@ -1,0 +1,31 @@
+name: proyecto-gestion-mant-backend
+region: ams
+services:
+  - name: backend
+    github:
+      repo: "David-Darkness/proyecto-gestion-mant-backend" # replace or remove if deploying from local via doctl
+      branch: main
+    dockerfile_path: Dockerfile
+    environment_slug: "docker"
+    instance_size_slug: "basic-xxs"
+    instance_count: 1
+    run_command: "java -jar /app/app.war"
+    source_dir: "."
+    routes:
+      - path: / 
+    http_port: 8080
+    envs:
+      - key: APP_JWT_SECRET
+        scope: RUN_AND_BUILD_TIME
+      - key: SPRING_DATASOURCE_URL
+        scope: RUN_AND_BUILD_TIME
+      - key: SPRING_DATASOURCE_USERNAME
+        scope: RUN_AND_BUILD_TIME
+      - key: SPRING_DATASOURCE_PASSWORD
+        scope: RUN_AND_BUILD_TIME
+      - key: APP_CORS_ALLOWED_ORIGINS
+        scope: RUN_AND_BUILD_TIME
+      - key: SPRING_JPA_SHOW_SQL
+        scope: RUN_AND_BUILD_TIME
+
+# Note: You can also provision a managed database separately and then set SPRING_DATASOURCE_URL to the managed DB's connection string.

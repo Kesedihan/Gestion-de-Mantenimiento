@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  backend:
+    image: proyectogestionmantcorrectivo:latest
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env.prod
+    environment:
+      - APP_JWT_SECRET=${APP_JWT_SECRET}
+      - SPRING_DATASOURCE_URL=${SPRING_DATASOURCE_URL}
+      - SPRING_DATASOURCE_USERNAME=${SPRING_DATASOURCE_USERNAME}
+      - SPRING_DATASOURCE_PASSWORD=${SPRING_DATASOURCE_PASSWORD}
+      - app.cors.allowed-origins=${APP_CORS_ALLOWED_ORIGINS}
+   # depends_on:
+    #  - db
+    restart: always
+
+
+  #db:
+   # image: postgres:15
+    #environment:
+     # - POSTGRES_DB=${POSTGRES_DB}
+      #- POSTGRES_USER=${POSTGRES_USER}
+      #- POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    #volumes:
+     # - db_data:/var/lib/postgresql/data
+    #restart: always
+
+volumes:
+  db_data:
